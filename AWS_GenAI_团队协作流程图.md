@@ -12,15 +12,15 @@ graph TD
     classDef partner fill:#f9e8d5,stroke:#333,stroke-width:1px
 
     %% 主流程
-    Start([客户需求]) --> SA[SA: 需求洞察 & 场景确认]
-    SA --> |高层架构图、演示Demo| RP[RP: 快速原型]
-    RP --> |Notebook/Demo/POC| AS[AS: 模型实验]
-    AS --> |微调权重、评估报告| Builder[Builder: 生产级工程化]
-    Builder --> |IaC Repo、CI/CD Pipeline| Partner[Partner: 客户化实施 & 运维]
-    Partner --> |项目交付、SLA服务| End([生产系统])
+    Start["客户需求"] --> SA["SA: 需求洞察 & 场景确认"]
+    SA --> |"高层架构图、演示Demo"| RP["RP: 快速原型"]
+    RP --> |"Notebook/Demo/POC"| AS["AS: 模型实验"]
+    AS --> |"微调权重、评估报告"| Builder["Builder: 生产级工程化"]
+    Builder --> |"IaC Repo、CI/CD Pipeline"| Partner["Partner: 客户化实施 & 运维"]
+    Partner --> |"项目交付、SLA服务"| End["生产系统"]
 
     %% 反馈循环
-    Partner -.-> |反馈改进点| SA
+    Partner -.-> |"反馈改进点"| SA
 
     %% 应用样式
     class SA sa
@@ -41,10 +41,10 @@ graph LR
     classDef builder fill:#e8f9d5,stroke:#333,stroke-width:1px
     classDef partner fill:#f9e8d5,stroke:#333,stroke-width:1px
 
-    SA[SA<br>定义"做什么"] --> RP[RP<br>验证"能不能跑"]
-    RP --> AS[AS<br>保证"效果好不好"]
-    AS --> Builder[Builder<br>解决"能不能上产"]
-    Builder --> Partner[Partner<br>负责"跑得长久"]
+    SA["SA\n定义做什么"] --> RP["RP\n验证能不能跑"]
+    RP --> AS["AS\n保证效果好不好"]
+    AS --> Builder["Builder\n解决能不能上产"]
+    Builder --> Partner["Partner\n负责跑得长久"]
 
     %% 应用样式
     class SA sa
@@ -58,23 +58,23 @@ graph LR
 
 ```mermaid
 graph TD
-  subgraph 路径A—资产已准备好
-    SA_A(SA 沟通<br/>推荐现成资产)
-    CUSTA{客户是否付费?}
-    RP_A(RP 免费辅助<br/>完成 POC)
-    PART_A(Partner 收费实施<br/>长期运维)
+  subgraph "路径A—资产已准备好"
+    SA_A["SA 沟通\n推荐现成资产"]
+    CUSTA{"客户是否付费?"}
+    RP_A["RP 免费辅助\n完成 POC"]
+    PART_A["Partner 收费实施\n长期运维"]
     SA_A --> CUSTA
-    CUSTA -- 否 --> RP_A
-    CUSTA -- 是 --> PART_A
-    RP_A --> CUSTFinal(客户自建生产)
-    PART_A --> PROD_A(生产系统上线)
+    CUSTA -- "否" --> RP_A
+    CUSTA -- "是" --> PART_A
+    RP_A --> CUSTFinal["客户自建生产"]
+    PART_A --> PROD_A["生产系统上线"]
   end
 
-  subgraph 路径B—资产未准备好
-    SA_B(SA 收集需求)
-    AS_B(必要时 AS & RP<br/>做一次性项目)
-    BUILD(BUILDER 资产化<br/>CDK/CFN Blueprint)
-    LOOP(新资产进入路径A)
+  subgraph "路径B—资产未准备好"
+    SA_B["SA 收集需求"]
+    AS_B["必要时 AS & RP\n做一次性项目"]
+    BUILD["BUILDER 资产化\nCDK/CFN Blueprint"]
+    LOOP["新资产进入路径A"]
     SA_B --> AS_B --> BUILD --> LOOP
   end
 ```
@@ -83,22 +83,22 @@ graph TD
 
 ```mermaid
 graph TD
-    POC[POC/原型] --> Builder[Builder 团队]
-    Builder --> Assets[生产级资产]
+    POC["POC/原型"] --> Builder["Builder 团队"]
+    Builder --> Assets["生产级资产"]
 
-    subgraph Builder 团队核心能力
-        AWS[AWS 原生工程化]
-        Security[安全 & 合规内建]
-        DevOps[DevOps & MLOps]
-        GenAI[GenAI 专长]
-        Bridge[桥梁角色]
+    subgraph "Builder 团队核心能力"
+        AWS["AWS 原生工程化"]
+        Security["安全 & 合规内建"]
+        DevOps["DevOps & MLOps"]
+        GenAI["GenAI 专长"]
+        Bridge["桥梁角色"]
     end
 
-    Assets --> |一键部署| Partner[Partner]
-    Assets --> |自助使用| Customer[客户]
+    Assets --> |"一键部署"| Partner["Partner"]
+    Assets --> |"自助使用"| Customer["客户"]
 
-    Partner --> Production[生产系统]
-    Customer --> SelfProduction[自建生产系统]
+    Partner --> Production["生产系统"]
+    Customer --> SelfProduction["自建生产系统"]
 ```
 
 ## 流程说明
