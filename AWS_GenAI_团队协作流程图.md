@@ -41,10 +41,10 @@ graph LR
     classDef builder fill:#e8f9d5,stroke:#333,stroke-width:1px
     classDef partner fill:#f9e8d5,stroke:#333,stroke-width:1px
 
-    SA["SA\n定义做什么"] --> RP["RP\n验证能不能跑"]
-    RP --> AS["AS\n保证效果好不好"]
-    AS --> Builder["Builder\n解决能不能上产"]
-    Builder --> Partner["Partner\n负责跑得长久"]
+    SA["SA: 定义做什么"] --> RP["RP: 验证能不能跑"]
+    RP --> AS["AS: 保证效果好不好"]
+    AS --> Builder["Builder: 解决能不能上产"]
+    Builder --> Partner["Partner: 负责跑得长久"]
 
     %% 应用样式
     class SA sa
@@ -59,10 +59,10 @@ graph LR
 ```mermaid
 graph TD
   subgraph "路径A—资产已准备好"
-    SA_A["SA 沟通\n推荐现成资产"]
+    SA_A["SA 沟通 - 推荐现成资产"]
     CUSTA{"客户是否付费?"}
-    RP_A["RP 免费辅助\n完成 POC"]
-    PART_A["Partner 收费实施\n长期运维"]
+    RP_A["RP 免费辅助 - 完成 POC"]
+    PART_A["Partner 收费实施 - 长期运维"]
     SA_A --> CUSTA
     CUSTA -- "否" --> RP_A
     CUSTA -- "是" --> PART_A
@@ -72,8 +72,8 @@ graph TD
 
   subgraph "路径B—资产未准备好"
     SA_B["SA 收集需求"]
-    AS_B["必要时 AS & RP\n做一次性项目"]
-    BUILD["BUILDER 资产化\nCDK/CFN Blueprint"]
+    AS_B["必要时 AS & RP - 做一次性项目"]
+    BUILD["BUILDER 资产化 - CDK/CFN Blueprint"]
     LOOP["新资产进入路径A"]
     SA_B --> AS_B --> BUILD --> LOOP
   end
