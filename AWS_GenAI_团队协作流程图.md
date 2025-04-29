@@ -43,7 +43,7 @@ graph LR
 
     SA["SA: 定义做什么"] --> RP["RP: 验证能不能跑"]
     RP --> AS["AS: 保证效果好不好"]
-    AS --> Builder["Builder: 解决能不能上产"]
+    AS --> Builder["Builder: 解决能不能上生产"]
     Builder --> Partner["Partner: 负责跑得长久"]
 
     %% 应用样式
